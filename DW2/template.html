@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+     <!-- Hong Song
+          Description:exam
+	        Date:              28/04    -->
+<html lang="en">
+ <head>
+   <meta charset="utf-8"/>
+
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	 <script type="text/javascript" src="./jquery-3.6.1.min.js"></script>
+	 <script type="text/javascript">
+ 
+ function load()
+    {
+        $(document).ready(function(){
+       $(".fpage").show(); 
+       $(".nxpage").hide(); 
+    });    
+    }
+
+function validateForm() {
+  // Get the values of the email and password fields
+  var email = "hong@lcieducation.com";
+  var password = "1234567";
+
+  // Regular expression to match college email addresses
+  var emailRegex = /^[a-zA-Z0-9._%+-]+@lcieducation.net$/;
+
+  // Check if email address is valid
+  if (!emailRegex.test(email)) {
+    // Show an error message for invalid email format
+    $("#email-error").text("Please enter a valid college email address.");
+    return false;
+  } else {
+    // Hide the email error message
+    $("#email-error").hide();
+  }
+
+  // Regular expression to match valid password format
+  var passwordRegex = /^[a-zA-Z0-9]{6,23}$/;
+
+  // Check if password is valid
+  if (!passwordRegex.test(password)) {
+    // Show an error message for invalid password format
+    $("#password-error").text("Please enter a valid password (6-23 characters, no symbols).");
+    return false;
+  } else {
+    // Hide the password error message
+	
+    $("#password-error").hide();
+  }
+
+ 
+
+  // Set a cookie for the email address
+  document.cookie = "student-email=" + email + ";max-age=23";
+
+  // Return true to submit the form and show the link
+  return true;
+}
+
+function setCookie(c_name,value,exsec)
+{
+	var exdate=new Date();
+	exdate.setTime(exdate.getTime() + (exsec * 1000));
+	var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+	document.cookie=c_name + "=" + c_value;
+}
+
+function getCookie(c_name)
+{
+	var i,x,y,ARRcookies=document.cookie.split(";");
+	for (i=0;i<ARRcookies.length;i++)
+	{
+	  x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+	  y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+	  x=x.replace(/^\s+|\s+$/g,"");
+	  if (x==c_name)
+	  { return unescape(y);}
+	}
+}
+	</script>
+
+<style>
+	form{
+		border: 5px solid green;
+		padding:23 px;
+		margin: 23px;
+		text-align: center;
+	}
+
+table {
+      border-collapse: collapse;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+    th,
+    td {
+      border: 1px solid black;
+      padding: 10px;
+      text-align: center;
+    }
+ 
+</style>
+ </head>
+ <body onload="load()">
+	
+		<form onsubmit="return validateForm();">
+			User name : <input type="text" id="student-email"/><br/>
+			Password : <input type="text" id="student-password"/><br/>
+			<input type="submit" value="Send data" />
+		</form>
+		<table style="width:100%">
+			<tr>
+			  <th style="color: green;">College Name</th>
+			  <th style="color: green;">Course Code</th>
+			  <th style="color: green;">Group No.</th>
+			  <th style="color: green;"> Course Name </th>
+			  <th style="color: green;"> Session </th>
+			</tr>
+			<tr>
+			  <td style="color:blue"><a href="https://www.lasallecollege.com/social-sciences-and-education-school?diploma=SocialSciences&utm_source=google&utm_medium=search&utm_term=&utm_campaign=19453982624&gclid=Cj0KCQjw3a2iBhCFARIsAD4jQB3xsY9KZzB9OS6EOyvljOehKiwE38k1LsleLdPgPqpJhxFegeFy_IgaAoOyEALw_wcB" target="_blank">LaSalle</a></td>
+			  <td style="color:red">420-DW2-AS</td>
+			  <td style="color:red">7162</td>
+			  <td style="color:red">WEB CLIENT DEVELOPMENT</td>
+			  <td style="color:red">Winter 2023</td>
+			</tr>
+			<tr>
+			  <td  colspan="5" style="text-align: right; font-weight: bold;color:blue"><a href="https://www.lasallecollege.com/social-sciences-and-education-school?diploma=SocialSciences&utm_source=google&utm_medium=search&utm_term=&utm_campaign=19453982624&gclid=Cj0KCQjw3a2iBhCFARIsAD4jQB3xsY9KZzB9OS6EOyvljOehKiwE38k1LsleLdPgPqpJhxFegeFy_IgaAoOyEALw_wcB" target="_blank">Copyright 2023</a> </a></td>
+			</tr>
+		  </table>
+
+ </body>
+</html>
